@@ -12,7 +12,6 @@ import "@dialectlabs/blinks/index.css";
 import { useEvmWagmiAdapter } from "@dialectlabs/blinks/hooks/evm";
 
 import { ConnectKitButton, useModal } from "connectkit";
-import Image from "next/image";
 
 export default function Home() {
   // Actions registry interval
@@ -30,7 +29,7 @@ export default function Home() {
 
   // Action we want to execute in the Blink
   const { blink, isLoading } = useBlink({
-    url: "evm-action:http://localhost:3000/api/actions/donate-mon",
+    url: `evm-action:${process.env.NEXT_PUBLIC_API}/api/actions/donate-mon`,
   });
 
   return (
